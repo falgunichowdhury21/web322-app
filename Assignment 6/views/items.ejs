@@ -1,0 +1,39 @@
+<h2>
+    Items
+    <a href="/items/add" class="btn btn-success pull-right">Add Post</a>
+</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Item ID</th>
+            <th>Title</th>
+            <th>Post Date</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Published</th>
+            <th></th> <!-- Empty header for any actions -->
+        </tr>
+    </thead>
+    <tbody>
+        <% if (items && items.length > 0) { %>
+            <% items.forEach(function(item) { %>
+                <tr>
+                    <td><%= item.id %></td>
+                        <td><%= item.title %></td>
+                        <td><%= item.postDate %></td>
+                        <td><%= item.category %></td>
+                        <td><%= item.price.toFixed(2) %></td>
+                        <td><%= item.published ? 'true' : 'false' %></td>
+                    <td>
+                        <a href="/items/delete/<%= item.id %>" class="btn btn-danger">Remove</a> <!-- Remove button -->
+                    </td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr>
+                <td colspan="4">No items available.</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

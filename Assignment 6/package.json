@@ -1,0 +1,27 @@
+{
+  "name": "web322-app",
+  "version": "1.0.0",
+  "description": "eCommerce web app for WEB322 course",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Falguni Chowdhury",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "client-sessions": "^0.8.0",
+    "cloudinary": "^2.5.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.1",
+    "express-ejs-layouts": "^2.5.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.8.4",
+    "multer": "^1.4.4-lts.1",
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
+    "ping-monitor": "^0.8.2",
+    "sequelize": "^6.37.5",
+    "streamifier": "^0.1.1"
+  }
+}

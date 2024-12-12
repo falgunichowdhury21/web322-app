@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Categories
+      <a href="/categories/add" class="btn btn-success pull-right">Add Category</a>
+  </h2>
+  <p><%= message || "" %></p>
+  <% if (categories && categories.length > 0) { %>
+      <table>
+          <thead>
+              <tr>
+                  <th>Category ID</th>
+                  <th>Category Name</th>
+                  <th>Items</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <% categories.forEach(category => { %>
+                  <tr>
+                      <td><%= category.id %></td>
+                      <td><%= category.category %></td>
+                      <td>
+                          <ul>
+                              <% if (category.Items && category.Items.length > 0) { %>
+                                  <% category.Items.forEach(item => { %>
+                                      <li>
+                                          <%= item.title %>
+                                          <form action="/items/delete/<%= item.id %>" method="POST" style="display:inline;">
+                                              <button type="submit" class="btn btn-danger btn-sm">Remove Item</button>
+                                          </form>
+                                      </li>
+                                  <% }); %>
+                              <% } else { %>
+                                  <li>No items found in this category.</li>
+                              <% } %>
+                          </ul>
+                      </td>
+                      <td>
+                          <form action="/categories/delete/<%= category.id %>" method="POST" style="display:inline;">
+                              <button type="submit" class="btn btn-danger btn-sm">Remove Category</button>
+                          </form>
+                      </td>
+                  </tr>
+              <% }); %>
+          </tbody>
+      </table>
+  <% } else { %>
+      <p>No categories found.</p>
+  <% } %>
+</div>
